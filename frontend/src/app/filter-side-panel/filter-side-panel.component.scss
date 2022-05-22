@@ -1,0 +1,34 @@
+.side-panel-filter-list {
+  background-color: #b4e3ff;
+  border-radius: 4px;
+  display: block;
+  height: 425px;
+  margin-bottom: 30px;
+}
+
+.pos-button {
+  width: 100% !important;
+}
+
+:host ::ng-deep .mat-list-base {
+  padding-top: 0;
+}
+
+:host ::ng-deep .mat-list-item-content {
+  padding: 0 !important;
+  align-items: normal;
+}
+
+:host ::ng-deep .mat-list-item {
+  height: auto !important;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+:host ::ng-deep .mat-list-item:first-child {
+  padding-top: 0px;
+}
+
+.sentence-button {
+  margin-top: 75px;
+}

@@ -1,0 +1,26 @@
+.filter-panel-wrapper {
+  background-color: #b4e3ff;
+  border-radius: 4px;
+  display: flex;
+  width: 97%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.filter-side-panel {
+  border: 2px solid;
+  border-color: #45baff;
+  border-radius: 6px;
+  min-height: 525px;
+  flex-grow: 1;
+  margin: 6px;
+  min-width: 180px !important;
+  max-width: 180px !important;
+}
+
+.filter-main-panel {
+  padding: 10px;
+  border-radius: 3px;
+  flex-grow: 10;
+}

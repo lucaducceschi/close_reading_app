@@ -1,0 +1,7 @@
+# chiamata get_filter() deve restituire anche conto totale della POS che viene richiesta (es: ?/456)
+# aggiungere servizio post get_sentences(), sempre POST, che restituisce:
+  - id di frasi di un certo tipo (int, decl, excl)
+  - id di frasi di un certo tipo che contengono certi id di parole (nel json del post ci sono due campi: tipo_frase, lista_id)
+# aggiugere servizio post get_ners() che restituisca gli id delle named entities
+# aggiungere juxtaposition() prende parametri pos e una distanza tra i tipi di pos e restituisce gli id  
+# gestione del trattino e dello spazio prima e dopo, es:  "Io suonavo – Pablo qui, Pablo là –" (pavese)

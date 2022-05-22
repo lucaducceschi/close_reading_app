@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Apri testo</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-selection-list [multiple]="false" #documentSelected>
+    <mat-list-option
+      *ngFor="let document of data"
+      [disableRipple]="true"
+      [value]="document"
+      role="listitem"
+    >
+      <span>{{ document.author }} - {{ document.title }}</span>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="documentSelected" cdkFocusInitial>
+    Apri
+  </button>
+  <button mat-button [mat-dialog-close]="">Annulla</button>
+</mat-dialog-actions>

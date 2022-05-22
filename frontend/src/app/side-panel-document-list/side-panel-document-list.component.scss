@@ -1,0 +1,48 @@
+.document-list-item {
+  height: 38px !important;
+  background-color: #7cceff;
+  margin-bottom: 2px !important;
+}
+
+::ng-deep .document-list-item span {
+  padding: 0 !important;
+}
+
+.document-list {
+  padding-top: 3px !important;
+}
+
+::ng-deep .mat-list-single-selected-option {
+  background-color: #45baff !important;
+}
+
+::ng-deep .mat-list-text {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+::ng-deep .mat-list-text span {
+  align-self: center !important;
+  flex-grow: 2 !important;
+  font-size: 0.88em !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.document-list-item-close-button {
+  border-radius: 4px !important;
+  left: 15px !important;
+  width: 25px !important;
+  height: 25px !important;
+  line-height: 25px !important;
+}
+
+.document-list-item-close-button:hover {
+  background-color: #45baff;
+}
+
+::ng-deep mat-icon {
+  font-size: 20px !important;
+  line-height: 22px !important;
+}

@@ -1,0 +1,12 @@
+<div class="panel-wrapper">
+  <app-side-panel
+    (documentListSelectionChangeEvent)="changeSelectedDocument($event)"
+    (removeDocumentFromListEvent)="removeDocumentFromList($event)"
+    class="side-panel"
+  ></app-side-panel>
+  <app-main-panel
+    [selectedDocument]="selectedDocument"
+    [tokenLenses]="tokenLenses"
+    class="main-panel"
+  ></app-main-panel>
+</div>

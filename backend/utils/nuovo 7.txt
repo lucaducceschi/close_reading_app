@@ -1,0 +1,853 @@
+a.
+ab.
+abbigl.
+abbrev.
+abl.
+a.C.
+ac.
+acc.
+accorc.
+accr.
+adatt.
+a.d.r.
+aeron.
+aerodin.
+affl.
+agg.
+agr.
+agric.
+alch.
+alg.
+alim.
+allev.
+allus.
+alt.
+anat.
+anat. comp.
+ant.
+antifr.
+anton.
+antrop.
+ar.
+arald.
+arc.
+arch.
+archeol.
+aritm.
+arred.
+art.
+arti min.
+artig.
+artigl.
+artt.
+assic.
+assol.
+astr.
+astrol.
+astron.
+att.
+attrav.
+aus.
+autom.
+avv.
+avvers.
+b.
+bal.
+ball.
+batt.
+bibl.
+bioch.
+biol.
+bot.
+bur.
+ca.
+cal.
+cap.
+capol.
+card.
+caus.
+c.a.
+c.m.
+c.d.
+c.d'a.
+centr.
+cfr.
+chim.
+chim. ind.
+chir.
+ciber.
+cin.
+citol.
+class.
+cm
+cmÂ², cmq
+cmq
+cod. civ.
+cod. pen.
+cod. proc. civ.
+cod. proc. pen.
+coll.
+com.
+comm.
+comp.
+compar.
+compl.
+conc.
+concl.
+condiz.
+confr.
+cong.
+congiunt.
+coniug.
+consec.
+contab.
+contr.
+corr.
+correl.
+corrisp.
+cost.
+costr.
+cristall.
+cron.
+cuc.
+c.v.d
+d.C.
+dat.
+decoraz.
+denom.
+deriv.
+derm
+determ.
+dial.
+difett.
+dimin.
+dimostr.
+dipart.
+diplom.
+Dir.
+dir.
+Dir. Amm.
+Dir. Can.
+Dir. Civ.
+Dir. d. lav.
+Dir. internaz.
+Dir. it.
+Dir. pen.
+Dir. priv.
+Dir. proces.
+Dir. pub.
+Dir. rom.
+disus.
+Dott.
+Dr.
+eban.
+ebr.
+ecc.
+eccl.
+econ.
+econ. az.
+econ. dom.
+econ. pol.
+ed.
+edil.
+edit.
+egiz.
+elab.
+elettr.
+elettron.
+ellitt.
+embr.
+enclic.
+enigm.
+enol.
+entom.
+epigr.
+es.
+escl.
+estens.
+estr. min.
+etim.
+etn.
+etol.
+eufem.
+f.
+fam.
+farm.
+ferr.
+fig.
+filat.
+filol.
+filos.
+fin.
+fis.
+fisiol.
+fisiopatol.
+folcl.
+fon.
+fotogr.
+fr.
+fut.
+g.
+gen.
+geneal.
+geod.
+geofis.
+geogr.
+geogr. antr.
+geogr. fis.
+geol.
+geom.
+germ.
+giorn.
+gr.
+gram.
+ha
+Hz
+ibid.
+icon.
+id.
+idraul.
+ig.
+imp.
+imper.
+imperf.
+impers.
+ind.
+ind. agr.
+ind. alim.
+ind. cart.
+ind. chim.
+ind. cuoio
+ind. estratt.
+ind. graf.
+ind. mecc.
+ind. tess.
+indecl.
+indef.
+indeterm.
+inf.
+inform.
+ing.
+ingl.
+ins.
+inter.
+intr.
+invar.
+iron.
+irreg.
+is.
+istol.
+it.
+ittiol.
+kg
+km
+kmÂ², kmq
+kW
+kWh
+l.
+lat.
+lav. femm.
+lav. pubbl.
+lett.
+ling.
+lit.
+loc.
+loc. div.
+long.
+m.
+macch.
+mar.
+mat.
+mater.
+max
+mecc.
+med.
+mediev.
+merc.
+merid.
+metall.
+meteor.
+metr.
+metrol.
+microb.
+mil.
+min.
+miner.
+mitol.
+mod.
+morf.
+mss
+mus.
+n.
+n.a.
+neg.
+neol.
+neur.
+nom.
+numism.
+oc.
+occ.
+occult.
+oculist.
+od.
+ogg.
+oland.
+onomat.
+ord.
+ord. scol.
+oref.
+orient.
+ornit.
+orogr.
+ott.
+p.
+p.a.
+pag./p.
+pagg./pp.
+paleobot.
+paleogr.
+paleont.
+paleozool.
+paletn.
+papir.
+parapsicol.
+part.
+partic.
+pass.
+patol.
+pedag.
+pegg.
+per.ind.
+pers.
+petr.
+petrogr.
+pitt.
+pl.
+poet.
+pol.
+popol.
+port.
+poss.
+pr.
+pref.
+preist.
+prep.
+pres.
+pret.
+priv.
+prof.
+pron.
+pronom.
+propr.
+prov.
+prox.
+psicoan.
+psicol.
+qc.
+qlc.
+qlcn.
+qlco.
+qlcs.
+qlcu.
+qualif.
+radiotecn.
+rag.
+rar.
+recipr.
+reg.
+region.
+rel.
+rem.
+rep.
+retor.
+rifl.
+rit.
+rom.
+s.
+scherz.
+scien.
+scult.
+SE
+sec.
+secc.
+seg.
+segg.
+sigill.
+sig.
+sigg.
+sig.ra
+sig.na
+simb.
+sin.
+sing.
+s/m
+SO
+sociol.
+sogg.
+sp.
+spett.
+spreg.
+SS
+st.
+stat.
+st. d. arte
+st. d. dir.
+st. d. filos.
+st. d. rel.
+suff.
+sup.
+superl.
+t.
+tav.
+tecn.
+tecnol.
+ted.
+tel.
+telecom.
+temp.
+teol.
+term.
+tess.
+tipogr.
+top.
+topog.
+tosc.
+tr.
+trad.
+trasp.
+tv
+a.
+ab.
+abbigl.
+abbrev.
+abl.
+a.C.
+ac.
+acc.
+accorc.
+accr.
+adatt.
+a.d.r.
+aeron.
+aerodin.
+affl.
+agg.
+agr.
+agric.
+alch.
+alg.
+alim.
+allev.
+allus.
+alt.
+anat.
+anat. comp.
+ant.
+antifr.
+anton.
+antrop.
+ar.
+arald.
+arc.
+arch.
+archeol.
+aritm.
+arred.
+art.
+arti min.
+artig.
+artigl.
+artt.
+assic.
+assol.
+astr.
+astrol.
+astron.
+att.
+attrav.
+aus.
+autom.
+avv.
+avvers.
+b.
+bal.
+ball.
+batt.
+bibl.
+bioch.
+biol.
+bot.
+bur.
+ca.
+cal.
+cap.
+capol.
+card.
+caus.
+c.a.
+c.m.
+c.d.
+c.d'a.
+centr.
+cfr.
+chim.
+chim. ind.
+chir.
+ciber.
+cin.
+citol.
+class.
+cod. civ.
+cod. pen.
+cod. proc. civ.
+cod. proc. pen.
+coll.
+com.
+comm.
+comp.
+compar.
+compl.
+conc.
+concl.
+condiz.
+confr.
+cong.
+congiunt.
+coniug.
+consec.
+contab.
+contr.
+corr.
+correl.
+corrisp.
+cost.
+costr.
+cristall.
+cron.
+cuc.
+c.v.d
+d.C.
+dat.
+decoraz.
+denom.
+deriv.
+derm
+determ.
+dial.
+difett.
+dimin.
+dimostr.
+dipart.
+diplom.
+Dir.
+dir.
+Dir. Amm.
+Dir. Can.
+Dir. Civ.
+Dir. d. lav.
+Dir. internaz.
+Dir. it.
+Dir. pen.
+Dir. priv.
+Dir. proces.
+Dir. pub.
+Dir. rom.
+disus.
+Dott.
+Dr.
+eban.
+ebr.
+ecc.
+eccl.
+econ.
+econ. az.
+econ. dom.
+econ. pol.
+ed.
+edil.
+edit.
+egiz.
+elab.
+elettr.
+elettron.
+ellitt.
+embr.
+enclic.
+enigm.
+enol.
+entom.
+epigr.
+es.
+escl.
+estens.
+estr. min.
+etim.
+etn.
+etol.
+eufem.
+f.
+fam.
+farm.
+ferr.
+fig.
+filat.
+filol.
+filos.
+fin.
+fis.
+fisiol.
+fisiopatol.
+folcl.
+fon.
+fotogr.
+fr.
+fut.
+g.
+gen.
+geneal.
+geod.
+geofis.
+geogr.
+geogr. antr.
+geogr. fis.
+geol.
+geom.
+germ.
+giorn.
+gr.
+gram.
+ha
+Hz
+ibid.
+icon.
+id.
+idraul.
+ig.
+imp.
+imper.
+imperf.
+impers.
+ind.
+ind. agr.
+ind. alim.
+ind. cart.
+ind. chim.
+ind. cuoio
+ind. estratt.
+ind. graf.
+ind. mecc.
+ind. tess.
+indecl.
+indef.
+indeterm.
+inf.
+inform.
+ing.
+ingl.
+ins.
+inter.
+intr.
+invar.
+iron.
+irreg.
+is.
+istol.
+it.
+ittiol.
+l.
+lat.
+lav. femm.
+lav. pubbl.
+lett.
+ling.
+lit.
+loc.
+loc. div.
+long.
+m.
+macch.
+mar.
+mat.
+mater.
+max
+mecc.
+med.
+mediev.
+merc.
+merid.
+metall.
+meteor.
+metr.
+metrol.
+microb.
+mil.
+min.
+miner.
+mitol.
+mod.
+morf.
+mss
+mus.
+n.
+n.a.
+neg.
+neol.
+neur.
+nom.
+numism.
+oc.
+occ.
+occult.
+oculist.
+od.
+ogg.
+oland.
+onomat.
+ord.
+ord. scol.
+oref.
+orient.
+ornit.
+orogr.
+ott.
+p.
+p.a.
+pag./p.
+pagg./pp.
+paleobot.
+paleogr.
+paleont.
+paleozool.
+paletn.
+papir.
+parapsicol.
+part.
+partic.
+pass.
+patol.
+pedag.
+pegg.
+per.ind.
+pers.
+petr.
+petrogr.
+pitt.
+pl.
+poet.
+pol.
+popol.
+port.
+poss.
+pr.
+pref.
+preist.
+prep.
+pres.
+pret.
+priv.
+prof.
+pron.
+pronom.
+propr.
+prov.
+prox.
+psicoan.
+psicol.
+qc.
+qlc.
+qlcn.
+qlco.
+qlcs.
+qlcu.
+qualif.
+radiotecn.
+rag.
+rar.
+recipr.
+reg.
+region.
+rel.
+rem.
+rep.
+retor.
+rifl.
+rit.
+rom.
+s.
+scherz.
+scien.
+scult.
+SE
+sec.
+secc.
+seg.
+segg.
+sigill.
+sig.
+sigg.
+sig.ra
+sig.na
+simb.
+sin.
+sing.
+s/m
+sociol.
+sogg.
+sp.
+spett.
+spreg.
+SS
+st.
+stat.
+st. d. arte
+st. d. dir.
+st. d. filos.
+st. d. rel.
+suff.
+sup.
+superl.
+t.
+tav.
+tecn.
+tecnol.
+ted.
+tel.
+telecom.
+temp.
+teol.
+term.
+tess.
+tipogr.
+top.
+topog.
+tosc.
+tr.
+trad.
+trasp.
+tv
+ungh.
+urban.
+v.
+val.
+vd.
+veter.
+vezz.
+voc.
+vol.
+volg.
+voll.
+zool.
+zoot.
+ungh.
+urban.
+v.
+val.
+vd.
+veter.
+vezz.
+voc.
+vol.
+volg.
+voll.
+zool.
+zoot.

@@ -1,0 +1,24 @@
+<mat-selection-list
+  (selectionChange)="documentListSelectionChange($event)"
+  class="document-list"
+  multiple="false"
+  #documentSelected
+>
+  <mat-list-option
+    *ngIf="openedDocument"
+    [disableRipple]="true"
+    [value]="openedDocument"
+    class="document-list-item"
+    role="listitem"
+    [title]="openedDocument.title"
+  >
+    <span>{{ openedDocument.title }}</span>
+    <button
+      mat-icon-button
+      class="document-list-item-close-button"
+      (click)="removeDocumentFromList(openedDocument)"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-list-option>
+</mat-selection-list>

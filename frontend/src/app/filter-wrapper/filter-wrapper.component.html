@@ -1,0 +1,22 @@
+<div class="filter-panel-wrapper">
+  <app-filter-side-panel
+    class="filter-side-panel"
+    (addFilterCardEvent)="addFilterCardToMainPanel($event)"
+  >
+  </app-filter-side-panel>
+  <app-filter-main-panel
+    (applyLensEvent)="applyLens($event)"
+    (applyFilterEvent)="applyFilter($event)"
+    (applySentenceEvent)="applySentence($event)"
+    (applySequenceEvent)="applySequence($event)"
+    (removeFilterCardEvent)="removeFilterCard($event)"
+    (removeSentenceCardEvent)="removeSentenceCard($event)"
+    (removeSequenceCardEvent)="removeSequenceCard($event)"
+    class="filter-main-panel"
+    [filterCards]="filterCards"
+    [sentenceCards]="sentenceCards"
+    [sequenceCards]="sequenceCards"
+    [selectedTabIndex]="selectedTabIndex"
+  >
+  </app-filter-main-panel>
+</div>

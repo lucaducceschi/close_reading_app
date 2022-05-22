@@ -1,0 +1,20 @@
+<mat-tab-group
+  mat-align-tabs="center"
+  (selectedIndexChange)="updateSelectedTabIndex($event)"
+  [animationDuration]="'0ms'"
+>
+  <mat-tab label="Testi">
+    <app-panel-wrapper
+      (changedSelectedDocId)="updateSelectedDocId($event)"
+      [tokenLenses]="tokenLenses"
+    ></app-panel-wrapper
+  ></mat-tab>
+  <mat-tab label="Filtri"
+    ><app-filter-wrapper
+      (updateTokenLensesEvent)="updateTokenLenses($event)"
+      [selectedDocId]="selectedDocId"
+      [selectedTabIndex]="selectedTabIndex"
+      [resetCards]="resetCards"
+    ></app-filter-wrapper
+  ></mat-tab>
+</mat-tab-group>

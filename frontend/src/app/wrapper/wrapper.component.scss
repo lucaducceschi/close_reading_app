@@ -1,0 +1,16 @@
+::ng-deep .mat-tab-header {
+  border-bottom: none !important;
+}
+
+::ng-deep .mat-tab-body {
+  overflow-y: hidden !important;
+  height: 100%;
+}
+
+::ng-deep .mat-tab-body-wrapper {
+  height: 100%;
+}
+
+::ng-deep .mat-tab-group {
+  height: 100%;
+}
