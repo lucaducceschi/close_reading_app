@@ -1,9 +1,6 @@
 from flask import Flask, escape, request, jsonify
-import sys
 import os
 import json
-import utils
-import pickle
 
 
 app = Flask(__name__)
@@ -38,48 +35,57 @@ def lstexts():
     dirname = request.args.get("dirname")
     return "\n".join(os.listdir(f"texts/{dirname}"))
 
-@app.route("/gettokeninfo")
-def gettokeninfo():
-    fname = request.args.get("doc")
-    path = f"texts/{fname}/{fname}.json"
-    tokenid = request.args.get("token")
-    sentid = tokenid.split("_")[0]
-    d = json.load(open(path))
-    return d[sentid][tokenid]
 
-@app.route("/getpos",methods=['POST'])
-def getpos():
-    out = []
-    request_data = request.get_json()
-    pos = request_data["upos"]
-    fname =request_data["id_text"]
-    text = json.load(open(f"texts/{fname}/{fname}.json"))
-    for s_id, s_dict in text.items():
-        for w_id, w_dict in s_dict.items():
-            try:
-                if w_dict["upos"] == pos:
-                    out.append(w_id)
-            except KeyError:
-                pass
-    return " ".join(out)
-    #return text
+#### These functions need to be refactored to respond to the new structure of the textual data 
+# @app.route("/gettokeninfo")
+# def gettokeninfo():
+#     fname = request.args.get("doc")
+#     path = f"texts/{fname}/{fname}.json"
+#     tokenid = request.args.get("token")
+#     sentid = tokenid.split("_")[0]
+#     d = json.load(open(path))
+#     return d[sentid][tokenid]
+
+# @app.route("/getpos",methods=['POST'])
+# def getpos():
+#     out = []
+#     request_data = request.get_json()
+#     pos = request_data["upos"]
+#     fname =request_data["id_text"]
+#     text = json.load(open(f"texts/{fname}/{fname}.json"))
+#     for s_id, s_dict in text.items():
+#         for w_id, w_dict in s_dict.items():
+#             try:
+#                 if w_dict["upos"] == pos:
+#                     out.append(w_id)
+#             except KeyError:
+#                 pass
+#     return " ".join(out)
+#     #return text
 
 @app.route("/getfilter", methods=["POST"])
 def getfilter():
-    
+    """Returns a string output containing the Ids of all the tokens that correspond to the search criteria and the number of matches per upos"""
     out = []
+    upos_counts = 0
     request_data = request.get_json()
     keys = {key:val for key,val in request_data.items() if val and key !="id_text" }
     fname =request_data["id_text"]
     text = json.load(open(f"texts/{fname}/{fname}.json"))
-    
-    for s_id, s_properties in text.items():
+    ## The new json structure is now {sentence_id:{word_id:word_features}, sentence_type:"decl|excl|int"}
+    for s_id, s_properties in text.items(): # s_properties is assigned a value like "int", o r "decl" or "excl"
         for w_id, w_dict in s_properties["dict"].items():
+            if "upos" in keys and "upos" in w_dict:
+                if w_dict["upos"] == keys["upos"]:
+                    upos_counts += 1
             if all((key,val) in w_dict.items() for key,val in keys.items()):
                 out.append(w_id)
                 print(w_dict["text"])
-     
-    return " ".join(out)
+    
+
+    return {"ids": " ".join(out), 
+            "count": f"{len(out)}/{upos_counts}"
+            }
 
 
 @app.route("/getsentence", methods=["POST"])
