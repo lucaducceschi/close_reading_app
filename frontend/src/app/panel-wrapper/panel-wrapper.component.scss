@@ -4,10 +4,10 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
+  height: calc(100% - 20px);
 }
 
 .side-panel {
-  min-height: 400px;
   flex-grow: 1;
   margin-right: 10px;
   min-width: 225px !important;

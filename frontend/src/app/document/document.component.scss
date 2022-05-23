@@ -1,12 +1,21 @@
 .document-body {
   width: 100%;
   overflow-wrap: anywhere;
-  max-height: 513px;
+  height: 100%;
   overflow-y: scroll;
   padding-right: 16px;
+}
+
+::ng-deep .word {
+  word-wrap: normal;
+}
+
+::ng-deep p {
+  margin-top: -11px !important;
 }
 
 .document-card {
   padding-top: 5px !important;
   padding-bottom: 5px !important;
+  height: calc(100% - 10px);
 }

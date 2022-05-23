@@ -6,13 +6,13 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 5px;
+  height: 100%;
 }
 
 .filter-side-panel {
   border: 2px solid;
   border-color: #45baff;
   border-radius: 6px;
-  min-height: 525px;
   flex-grow: 1;
   margin: 6px;
   min-width: 180px !important;
