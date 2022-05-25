@@ -7,6 +7,7 @@ import {
   SequenceResponse,
 } from '../models/filter-card';
 import { FilterRequest } from '../models/filter-request';
+import { FilterResponse } from '../models/filter-response';
 
 const httpOptions: Object = {
   responseType: 'text',
@@ -18,11 +19,10 @@ const httpOptions: Object = {
 export class FilterService {
   constructor(private http: HttpClient) {}
 
-  getFilter(filterRequest: FilterRequest): Observable<string> {
-    return this.http.post<string>(
+  getFilter(filterRequest: FilterRequest): Observable<FilterResponse> {
+    return this.http.post<FilterResponse>(
       `http://localhost:4200/getfilter`,
-      filterRequest,
-      httpOptions
+      filterRequest
     );
   }
 

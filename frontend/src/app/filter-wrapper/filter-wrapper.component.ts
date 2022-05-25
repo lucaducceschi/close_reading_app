@@ -57,7 +57,6 @@ export class FilterWrapperComponent {
             id: Math.floor(Math.random() * 100000),
             position: initialCardPosition(),
             notApplied: true,
-            tokenCount: undefined,
             active: false,
             zIndex:
               this.filterCards.length +
@@ -147,17 +146,19 @@ export class FilterWrapperComponent {
     console.log('Filter Request:', filterCard.filterRequest);
     this.filterService
       .getFilter(filterCard.filterRequest)
-      .subscribe((tokens) => {
-        console.log('Filter Response:', tokens);
+      .subscribe((filterResponse) => {
+        console.log('Filter Response:', filterResponse);
         const tokenResultsIndex = this.tokenLenses.findIndex(
           (tokenLens) => tokenLens.cardId == filterCard.id
         );
 
-        const tokensSplitted = tokens.split(' ').filter((token) => token != '');
+        const tokensSplitted = filterResponse.ids
+          .split(' ')
+          .filter((id) => id != '');
 
         if (tokenResultsIndex != -1) {
           this.tokenLenses[tokenResultsIndex].tokenResult = tokensSplitted;
-          filterCard.tokenCount = tokensSplitted.length;
+          filterCard.tokenCount = filterResponse.count;
           this.updateTokenLensesEvent.emit(this.tokenLenses);
         } else {
           this.tokenLenses.push(
@@ -167,7 +168,7 @@ export class FilterWrapperComponent {
               lens: filterCard.lens,
             })
           );
-          filterCard.tokenCount = tokensSplitted.length;
+          filterCard.tokenCount = filterResponse.count;
           this.updateTokenLensesEvent.emit(this.tokenLenses);
         }
       });
@@ -193,7 +194,6 @@ export class FilterWrapperComponent {
 
         if (tokenResultsIndex != -1) {
           this.tokenLenses[tokenResultsIndex].tokenResult = tokensSplitted;
-          sentenceCard.tokenCount = tokensSplitted.length;
           this.updateTokenLensesEvent.emit(this.tokenLenses);
         } else {
           this.tokenLenses.push(
@@ -203,7 +203,6 @@ export class FilterWrapperComponent {
               lens: sentenceCard.lens,
             })
           );
-          sentenceCard.tokenCount = tokensSplitted.length;
           this.updateTokenLensesEvent.emit(this.tokenLenses);
         }
       });

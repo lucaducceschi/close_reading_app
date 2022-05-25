@@ -124,8 +124,7 @@ export class FilterMainPanelComponent {
       return 'SEQUENZA';
     }
     if (this.isSentenceCard(card)) {
-      const tokenCount = card.tokenCount ?? '';
-      return 'FRASE ' + tokenCount;
+      return 'FRASE';
     }
     if (this.isFilterCard(card)) {
       const sequenceIndex =

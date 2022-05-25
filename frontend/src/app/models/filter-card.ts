@@ -13,7 +13,6 @@ export interface Card {
   notApplied: boolean;
   active: boolean;
   position: CardPosition;
-  tokenCount: number;
 }
 
 export interface CardPosition {
@@ -35,6 +34,7 @@ export function initialCardPosition() {
 export interface FilterCard extends Card {
   filterRequest: FilterRequest;
   filterFormGroup: FormGroup;
+  tokenCount: string;
 }
 
 export function aFilterCard(filterCard: FilterCard) {
