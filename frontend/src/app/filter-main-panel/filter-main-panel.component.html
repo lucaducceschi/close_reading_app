@@ -10,6 +10,8 @@
     (click)="linkSentenceCardWithFilterCard(panelH, card)"
     (cdkDragMoved)="updateLine(card)"
     [cdkDragFreeDragPosition]="getFreePosition(card)"
+    return
+    position
     [ngStyle]="{ 'z-index': card.zIndex }"
     [id]="card.id"
   >

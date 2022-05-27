@@ -162,7 +162,7 @@ export class FilterMainPanelComponent {
     return 'FILTRO';
   }
 
-  //risoluzione bug della card che si aggiunge nel primo posto libero
+  //risoluzione bug della card che ora viene creata occupando un posto random non sovrapponendosi
   getFreePosition(card: Card) {
     if (card.position.x == 0 && card.position.y == 0) {
       const boundaryHeight = document.querySelector('.boundary').clientHeight;
