@@ -126,7 +126,7 @@ def getsequence():
     request_data = request.get_json()
     keys = {key:val for key,val in request_data.items() if val and key !="id_text" }
     fname =request_data["id_text"]
-    text = json.load(open(f"texts/{fname}/{fname}.json"))
+    # doc = json.load(open(f"texts/{fname}/{fname}.json"))
     distance = request_data["distance"]
 
     a = {s.split("_")[0]:[] for s in request_data["after"]}
@@ -143,10 +143,13 @@ def getsequence():
     out = {key:[] for key in intersections}
     for key in intersections:
         for val_a, val_b in zip(a[key], b[key]):
-            if val_b - val_a <= distance:
+            if val_b  <= val_a + distance and val_b > val_a:
                 out[key].append([f"{key}_w{val_a}", f"{key}_w{val_b}"])
 
+    out = {key:val for key,val in out.items() if val != []}
+    
     return out
+
 
                 
 
