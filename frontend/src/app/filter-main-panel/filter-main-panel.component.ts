@@ -225,36 +225,40 @@ export class FilterMainPanelComponent {
     $event.stopPropagation();
 
     if (sentenceCard.line == undefined) {
-      this.linkMode = true;
+      if (!this.linkMode) {
+        this.linkMode = true;
+        this.linkEvent
+          .pipe(
+            first(),
+            tap((filterCardElementId) => {
+              const sentenceCardElement = document.getElementById(
+                sentenceCard.id.toString()
+              );
+              const filterCardElement =
+                document.getElementById(filterCardElementId);
 
-      this.linkEvent
-        .pipe(
-          first(),
-          tap((filterCardElementId) => {
-            const sentenceCardElement = document.getElementById(
-              sentenceCard.id.toString()
-            );
-            const filterCardElement =
-              document.getElementById(filterCardElementId);
+              const line = new LeaderLine(
+                sentenceCardElement,
+                filterCardElement
+              );
 
-            const line = new LeaderLine(sentenceCardElement, filterCardElement);
+              line.setOptions({
+                endPlug: 'behind',
+              });
 
-            line.setOptions({
-              endPlug: 'behind',
-            });
+              sentenceCard.line = line;
+              sentenceCard.embeddingFor = parseInt(filterCardElementId);
 
-            sentenceCard.line = line;
-            sentenceCard.embeddingFor = parseInt(filterCardElementId);
+              const embeddedFilterCardIndex = this.filterCards.findIndex(
+                (filterCard) => filterCard.id == parseInt(filterCardElementId)
+              );
+              this.filterCards[embeddedFilterCardIndex].line = line;
 
-            const embeddedFilterCardIndex = this.filterCards.findIndex(
-              (filterCard) => filterCard.id == parseInt(filterCardElementId)
-            );
-            this.filterCards[embeddedFilterCardIndex].line = line;
-
-            this.linkMode = false;
-          })
-        )
-        .subscribe();
+              this.linkMode = false;
+            })
+          )
+          .subscribe();
+      }
     }
   }
 
