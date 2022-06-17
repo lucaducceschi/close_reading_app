@@ -21,6 +21,6 @@ export class DocumentService {
   }
 
   listTexts() {
-    return this.http.get<Object>(`http://127.0.0.1:5000/listtexts`);
+    return this.http.get<Object>(`http://127.0.0.1:4200/listtexts`);
   }
 }
