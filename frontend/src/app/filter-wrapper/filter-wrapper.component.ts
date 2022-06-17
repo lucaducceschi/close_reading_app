@@ -99,6 +99,15 @@ export class FilterWrapperComponent {
               distance: [undefined],
             }),
             lines: [],
+            lensFormSubscription: undefined,
+            lensFormGroup: this.fb.group({
+              font: ['Arial'],
+              color: ['#000000'],
+              highlight: ['#FFFFFF'],
+            }),
+            lens: DISABLED_FILTER_LENS,
+            notApplied: true,
+            active: false,
           })
         );
       } else {
@@ -175,12 +184,15 @@ export class FilterWrapperComponent {
   }
 
   applySentence(sentenceCard: SentenceCard) {
-    const embeddedTokenLens = this.tokenLenses.find((tokenLens) => {
-      return tokenLens.cardId == sentenceCard.embeddingFor;
-    });
-    sentenceCard.sentenceRequest.word_ids =
-      embeddedTokenLens?.tokenResult || [];
-
+    if (sentenceCard.embeddingFor != undefined) {
+      const embeddedTokenLens = this.tokenLenses.find((tokenLens) => {
+        return tokenLens.cardId == sentenceCard.embeddingFor;
+      });
+      sentenceCard.sentenceRequest.word_ids =
+        embeddedTokenLens?.tokenResult || [];
+    } else {
+      sentenceCard.sentenceRequest.word_ids = [];
+    }
     console.log('Sentence Request:', sentenceCard.sentenceRequest);
     this.filterService
       .getSentence(sentenceCard.sentenceRequest)
@@ -227,31 +239,34 @@ export class FilterWrapperComponent {
       .getSequence($event.sequenceCard.sequenceRequest)
       .subscribe((sequenceResponse) => {
         console.log('Sequence Response:', sequenceResponse);
-        const beforeTokenResults = Object.values(sequenceResponse).flatMap(
+        const tokens = Object.values(sequenceResponse).flatMap(
           (sequenceTokensBySentence) =>
-            sequenceTokensBySentence.flatMap(([_, before]) => before)
+            sequenceTokensBySentence.flatMap((afterAndBefore) => afterAndBefore)
         );
 
-        const afterTokenResults = Object.values(sequenceResponse).flatMap(
-          (sequenceTokensBySentence) =>
-            sequenceTokensBySentence.flatMap(([after, _]) => after)
+        const tokenResultsIndex = this.tokenLenses.findIndex(
+          (tokenLens) => tokenLens.cardId == $event.sequenceCard.id
         );
 
-        const beforeTokenLensIndex = this.tokenLenses.findIndex(
-          (tokenLens) => tokenLens.cardId == $event.sequenceCard.sequenceFor[0]
-        );
-        const afterTokenLensIndex = this.tokenLenses.findIndex(
-          (tokenLens) => tokenLens.cardId == $event.sequenceCard.sequenceFor[1]
-        );
+        const tokensSplitted = tokens.filter((token) => token != '');
 
-        this.tokenLenses[beforeTokenLensIndex].tokenResult = beforeTokenResults;
-        this.tokenLenses[afterTokenLensIndex].tokenResult = afterTokenResults;
-
-        this.updateTokenLensesEvent.emit(this.tokenLenses);
+        if (tokenResultsIndex != -1) {
+          this.tokenLenses[tokenResultsIndex].tokenResult = tokensSplitted;
+          this.updateTokenLensesEvent.emit(this.tokenLenses);
+        } else {
+          this.tokenLenses.push(
+            aTokenLens({
+              cardId: $event.sequenceCard.id,
+              tokenResult: tokensSplitted,
+              lens: $event.sequenceCard.lens,
+            })
+          );
+          this.updateTokenLensesEvent.emit(this.tokenLenses);
+        }
       });
   }
 
-  applyLens(card: Card) {
+  applyLens(card: Card | SequenceCard) {
     const tokenLensIndexToApplyLens = this.tokenLenses.findIndex(
       (tokenLens) => tokenLens.cardId == card.id
     );
@@ -357,10 +372,8 @@ export class FilterWrapperComponent {
       (sequenceCard) => sequenceCard.id != sequenceCardToRemove.id
     );
 
-    this.applyFilter(this.filterCards[sequenceFilterCardBeforeIndex]);
-    setTimeout(
-      () => this.applyFilter(this.filterCards[sequenceFilterCardAfterIndex]),
-      1000
+    this.tokenLenses = this.tokenLenses.filter(
+      (tokenLens) => tokenLens.cardId != sequenceCardToRemove.id
     );
 
     this.updateTokenLensesEvent.emit(this.tokenLenses);

@@ -68,6 +68,11 @@ export interface SequenceCard {
   sequenceFormGroup: FormGroup;
   zIndex: number;
   lines: any[];
+  lens: Lens;
+  lensFormGroup: FormGroup;
+  lensFormSubscription: Subscription;
+  notApplied: boolean;
+  active: boolean;
 }
 
 export interface SequenceRequest {

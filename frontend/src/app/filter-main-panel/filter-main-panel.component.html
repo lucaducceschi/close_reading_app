@@ -257,7 +257,7 @@
           [disableRipple]="true"
           (click)="$event.stopPropagation()"
           (change)="toggleSentenceLens($event, card)"
-          [disabled]="card.embeddingFor == undefined || card.notApplied"
+          [disabled]="card.notApplied"
           [checked]="card.active"
         ></mat-slide-toggle>
         {{ getCardName(card) }}
@@ -315,7 +315,6 @@
 
   <mat-expansion-panel
     class="filter-card"
-    style="max-height: 200px"
     [expanded]="false"
     *ngFor="let card of sequenceCards"
     cdkDrag
@@ -376,7 +375,13 @@
       >
         <mat-icon color="warn"> backspace </mat-icon>
       </button>
-      <mat-panel-title style="padding-left: 15px">
+      <mat-panel-title>
+        <mat-slide-toggle
+          [disableRipple]="true"
+          (click)="$event.stopPropagation()"
+          (change)="toggleFilterLens($event, card)"
+          [disabled]="card.notApplied"
+        ></mat-slide-toggle>
         {{ getCardName(card) }}
       </mat-panel-title>
     </mat-expansion-panel-header>
@@ -395,5 +400,31 @@
         Applica
       </button>
     </form>
+    <mat-expansion-panel [expanded]="true" class="lens-card">
+      <mat-expansion-panel-header
+        [collapsedHeight]="'40px'"
+        [expandedHeight]="'40px'"
+      >
+        <mat-panel-title> Lente </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <form [formGroup]="card.lensFormGroup">
+        <mat-label>Font: </mat-label>
+        <mat-form-field appearance="fill">
+          <mat-label>Font</mat-label>
+          <mat-select formControlName="font">
+            <mat-option value="Arial"> Arial </mat-option>
+            <mat-option value="Verdana"> Verdana </mat-option>
+            <mat-option value="Times New Roman"> Times New Roman </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-label class="color-label">Colore</mat-label>
+        <input type="color" formControlName="color" value="#000000" />
+
+        <mat-label class="highlight-label"> Evidenziatore </mat-label>
+        <input type="color" formControlName="highlight" value="#FFFFFF" />
+      </form>
+    </mat-expansion-panel>
   </mat-expansion-panel>
 </div>

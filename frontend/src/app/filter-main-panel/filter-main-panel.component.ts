@@ -446,18 +446,20 @@ export class FilterMainPanelComponent {
   }
 
   //TOGGLE
-  toggleFilterLens($event: MatSlideToggleChange, filterCard: FilterCard) {
+  toggleFilterLens(
+    $event: MatSlideToggleChange,
+    card: FilterCard | SequenceCard
+  ) {
     if ($event.checked) {
-      filterCard.active = true;
-      this.applyLens(filterCard);
-      filterCard.lensFormSubscription =
-        filterCard.lensFormGroup.valueChanges.subscribe(() =>
-          this.applyLens(filterCard)
-        );
+      card.active = true;
+      this.applyLens(card);
+      card.lensFormSubscription = card.lensFormGroup.valueChanges.subscribe(
+        () => this.applyLens(card)
+      );
     } else {
-      filterCard.active = false;
-      this.disableLens(filterCard);
-      filterCard.lensFormSubscription.unsubscribe();
+      card.active = false;
+      this.disableLens(card);
+      card.lensFormSubscription.unsubscribe();
     }
   }
 
@@ -478,7 +480,7 @@ export class FilterMainPanelComponent {
   }
 
   //LENS
-  applyLens(card: Card) {
+  applyLens(card: Card | SequenceCard) {
     card.lens = {
       ...card.lens,
       font: card.lensFormGroup.value.font,
@@ -489,7 +491,7 @@ export class FilterMainPanelComponent {
     this.applyLensEvent.emit(card);
   }
 
-  disableLens(card: Card) {
+  disableLens(card: Card | SequenceCard) {
     card.lens = DISABLED_FILTER_LENS;
     this.applyLensEvent.emit(card);
   }
@@ -522,17 +524,19 @@ export class FilterMainPanelComponent {
 
     sentenceCard.notApplied = false;
 
-    const embeddedFilterCard = this.filterCards.find(
-      (filterCard) => filterCard.id == sentenceCard.embeddingFor
-    );
+    if (sentenceCard.embeddingFor != undefined) {
+      const embeddedFilterCard = this.filterCards.find(
+        (filterCard) => filterCard.id == sentenceCard.embeddingFor
+      );
 
-    if (!embeddedFilterCard.active) {
-      const filterCardDisabledLens = {
-        ...embeddedFilterCard,
-        filterLens: DISABLED_FILTER_LENS,
-      };
+      if (!embeddedFilterCard.active) {
+        const filterCardDisabledLens = {
+          ...embeddedFilterCard,
+          filterLens: DISABLED_FILTER_LENS,
+        };
 
-      this.applyFilterEvent.emit(filterCardDisabledLens);
+        this.applyFilterEvent.emit(filterCardDisabledLens);
+      }
       setTimeout(() => this.applySentenceEvent.emit(sentenceCard), 1000);
     } else {
       this.applySentenceEvent.emit(sentenceCard);
@@ -559,13 +563,13 @@ export class FilterMainPanelComponent {
       filterLens: DISABLED_FILTER_LENS,
     };
 
-    this.applyLensEvent.emit(filterCardBeforeWithDisabledLens);
-    this.applyLensEvent.emit(filterCardAfterWithDisabledLens),
-      this.applySequenceEvent.emit({
-        sequenceCard: sequenceCard,
-        beforeCard: filterCardBeforeWithDisabledLens,
-        afterCard: filterCardAfterWithDisabledLens,
-      });
+    sequenceCard.notApplied = false;
+
+    this.applySequenceEvent.emit({
+      sequenceCard: sequenceCard,
+      beforeCard: filterCardBeforeWithDisabledLens,
+      afterCard: filterCardAfterWithDisabledLens,
+    });
   }
 
   getNumberValue(value: any) {
