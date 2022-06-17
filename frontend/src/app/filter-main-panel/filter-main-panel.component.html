@@ -352,7 +352,7 @@
         mat-icon-button
         aria-label="Link"
         class="remove-button"
-        (click)="unlinkSequenceCard1($event, card)"
+        (click)="unlinkSequenceCard1($event, card, sequenceSlideToggle)"
         *ngIf="card.sequenceFor[0] != undefined"
       >
         <mat-icon color="warn"> backspace </mat-icon>
@@ -370,13 +370,14 @@
         mat-icon-button
         aria-label="Link"
         class="remove-button"
-        (click)="unlinkSequenceCard2($event, card)"
+        (click)="unlinkSequenceCard2($event, card, sequenceSlideToggle)"
         *ngIf="card.sequenceFor[1] != undefined"
       >
         <mat-icon color="warn"> backspace </mat-icon>
       </button>
       <mat-panel-title>
         <mat-slide-toggle
+          #sequenceSlideToggle
           [disableRipple]="true"
           (click)="$event.stopPropagation()"
           (change)="toggleFilterLens($event, card)"
@@ -396,6 +397,7 @@
         color="warn"
         (click)="applySequence(card)"
         class="apply-button"
+        [disabled]="isApplySequenceDisabled(card)"
       >
         Applica
       </button>

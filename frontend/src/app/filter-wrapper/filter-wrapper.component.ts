@@ -288,6 +288,7 @@ export class FilterWrapperComponent {
       this.sentenceCards[embeddingSentenceCardIndex].active = false;
       this.sentenceCards[embeddingSentenceCardIndex].lens =
         DISABLED_FILTER_LENS;
+      this.sentenceCards[embeddingSentenceCardIndex].notApplied = true;
 
       const embeddingTokenLensIndex = this.tokenLenses.findIndex(
         (tokenLens) =>

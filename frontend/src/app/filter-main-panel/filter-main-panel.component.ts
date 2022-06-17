@@ -364,7 +364,11 @@ export class FilterMainPanelComponent {
     }
   }
 
-  unlinkSequenceCard1($event: any, card: SequenceCard) {
+  unlinkSequenceCard1(
+    $event: any,
+    card: SequenceCard,
+    slideToggle: MatSlideToggle
+  ) {
     $event.stopPropagation();
 
     card.lines[0].remove();
@@ -378,10 +382,23 @@ export class FilterMainPanelComponent {
 
     card.sequenceFor[0] = undefined;
 
-    this.applyFilterEvent.emit(this.filterCards[beforeFilterCardIndex]);
+    card.active = false;
+    card.notApplied = true;
+
+    if (slideToggle.checked) {
+      slideToggle.toggle();
+      slideToggle.change.emit({
+        source: slideToggle,
+        checked: false,
+      });
+    }
   }
 
-  unlinkSequenceCard2($event: any, card: SequenceCard) {
+  unlinkSequenceCard2(
+    $event: any,
+    card: SequenceCard,
+    slideToggle: MatSlideToggle
+  ) {
     $event.stopPropagation();
 
     card.lines[1].remove();
@@ -394,7 +411,23 @@ export class FilterMainPanelComponent {
 
     card.sequenceFor[1] = undefined;
 
-    this.applyFilterEvent.emit(this.filterCards[afterFilterCardIndex]);
+    card.active = false;
+    card.notApplied = true;
+
+    if (slideToggle.checked) {
+      slideToggle.toggle();
+      slideToggle.change.emit({
+        source: slideToggle,
+        checked: false,
+      });
+    }
+  }
+
+  isApplySequenceDisabled(sequenceCard: SequenceCard) {
+    return (
+      sequenceCard.sequenceFor.length < 2 ||
+      sequenceCard.sequenceFor.some((filterCardId) => filterCardId == undefined)
+    );
   }
 
   updateLine(card: FilterCard | SentenceCard | SequenceCard) {
@@ -423,7 +456,7 @@ export class FilterMainPanelComponent {
 
   updateLineAfterMove(card: FilterCard | SentenceCard | SequenceCard) {
     if (this.isSequenceCard(card)) {
-      card.lines.forEach((line) => line.position());
+      card.lines.forEach((line) => line?.position());
     } else {
       if (card.line) card.line.position();
     }
@@ -565,11 +598,17 @@ export class FilterMainPanelComponent {
 
     sequenceCard.notApplied = false;
 
-    this.applySequenceEvent.emit({
-      sequenceCard: sequenceCard,
-      beforeCard: filterCardBeforeWithDisabledLens,
-      afterCard: filterCardAfterWithDisabledLens,
-    });
+    this.applyFilter(filterCardBeforeWithDisabledLens);
+    this.applyFilter(filterCardAfterWithDisabledLens);
+    setTimeout(
+      () =>
+        this.applySequenceEvent.emit({
+          sequenceCard: sequenceCard,
+          beforeCard: filterCardBeforeWithDisabledLens,
+          afterCard: filterCardAfterWithDisabledLens,
+        }),
+      1000
+    );
   }
 
   getNumberValue(value: any) {
