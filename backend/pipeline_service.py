@@ -143,9 +143,9 @@ def getsequence():
     out = {sentid:[] for sentid in intersections}
     for sentid in intersections:
         for wordid_a, wordid_b in zip(a[sentid], b[sentid]):
-            if wordid_b  <= wordid_a + distance and wordid_b > wordid_a:
+            if wordid_a  <= wordid_b + distance and wordid_a > wordid_b:
                 print(sentid, wordid_a, wordid_b)
-                seq = [f"{sentid}_w{val}" for val in range(wordid_a, wordid_b+1)]
+                seq = [f"{sentid}_w{val}" for val in range(wordid_b, wordid_a+1)]
                 out[sentid].append(seq)
                 
 
