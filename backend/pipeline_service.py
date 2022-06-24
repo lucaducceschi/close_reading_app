@@ -26,7 +26,7 @@ def getdocument():
     """TODO: add 440 in case file does not exist"""
 
     fname = request.args.get("doc")
-    path = f"texts/{fname}/{fname}_creading.html"
+    path = f"texts/{fname}/{fname}.html"
     return open(path, encoding="utf8").read()
     #return open(f"texts/{doc}").read()
 
