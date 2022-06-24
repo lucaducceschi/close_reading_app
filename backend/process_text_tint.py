@@ -64,7 +64,7 @@ def tint2html(tintjson, css_info=""):
 #                         tok_id = "-".join([str(i) for i in tok.id])
 #                         new_sent+=f"<span>&nbsp</span><span class='word' id='s{nsent}_w{tok_id}'>{tok.text}</span>"
 
-print("Processing close rading json...")
+print("Processing close reading json...")
 def tint2creadjson(tintsjon):
     """Valid values in tokens:
     ["index", 'ud_pos', pos, 'word', 'ner', 'featuresText', "lemma", "isMultiwordToken"]"""
