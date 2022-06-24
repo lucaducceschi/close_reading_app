@@ -1,12 +1,11 @@
-{"pavese_il_compagno":{"author": "Cesare Pavese",
+{"pavese_ilcompagno":{"author": "Cesare Pavese",
 					 "title" : "Il Compagno"},
-"pirandello_il_fu_mattia_pascal":{"author": "Luigi Pirandello",
+"pirandello_ilfumattiapascal":{"author": "Luigi Pirandello",
 			"title" : "Il fu Mattia Pascal"},
-"salgari_jolanda_la_figlia_del_corsaro_nero":{"author": "Emilio Salgari",
-			"title" : "Jolanda, La Figlia del Corsaro Nero"},
-"wuming_tomahawk":{"author": "Wu Ming",
-			"title" : "Tomahawk"},
-"short_sample":{"author": "Unknown",
-			"title" : "Short Sample"}			
+"salgari_leduetigri":{"author": "Emilio Salgari",
+			"title" : "Le due Tigri"},
+"svevo_senilita":{"author": "Italo  Svevo",
+			"title" : "Senilità"},
+			
 			
 					 }

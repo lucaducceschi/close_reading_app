@@ -36,33 +36,6 @@ def lstexts():
     return "\n".join(os.listdir(f"texts/{dirname}"))
 
 
-#### These functions need to be refactored to respond to the new structure of the textual data 
-# @app.route("/gettokeninfo")
-# def gettokeninfo():
-#     fname = request.args.get("doc")
-#     path = f"texts/{fname}/{fname}.json"
-#     tokenid = request.args.get("token")
-#     sentid = tokenid.split("_")[0]
-#     d = json.load(open(path))
-#     return d[sentid][tokenid]
-
-# @app.route("/getpos",methods=['POST'])
-# def getpos():
-#     out = []
-#     request_data = request.get_json()
-#     pos = request_data["upos"]
-#     fname =request_data["id_text"]
-#     text = json.load(open(f"texts/{fname}/{fname}.json"))
-#     for s_id, s_dict in text.items():
-#         for w_id, w_dict in s_dict.items():
-#             try:
-#                 if w_dict["upos"] == pos:
-#                     out.append(w_id)
-#             except KeyError:
-#                 pass
-#     return " ".join(out)
-#     #return text
-
 @app.route("/getfilter", methods=["POST"])
 def getfilter():
     """Returns a string output containing the Ids of all the tokens that correspond to the search criteria and the number of matches per upos"""
@@ -71,7 +44,7 @@ def getfilter():
     request_data = request.get_json()
     keys = {key:val for key,val in request_data.items() if val and key !="id_text" }
     fname =request_data["id_text"]
-    text = json.load(open(f"texts/{fname}/{fname}.json"))
+    text = json.load(open(f"texts/{fname}/{fname}_creading.json"))
     ## The new json structure is now {sentence_id:{word_id:word_features}, sentence_type:"decl|excl|int"}
     for s_id, s_properties in text.items(): # s_properties is assigned a value like "int", o r "decl" or "excl"
         for w_id, w_dict in s_properties["dict"].items():
@@ -96,7 +69,7 @@ def getsentence():
     request_data = request.get_json()
     keys = {key:val for key,val in request_data.items() if val and key !="id_text" }
     fname =request_data["id_text"]
-    text = json.load(open(f"texts/{fname}/{fname}.json"))
+    text = json.load(open(f"texts/{fname}/{fname}_creading.json"))
 
     if "word_ids" in keys:
         for s_id, s_properties in text.items():
@@ -126,7 +99,7 @@ def getsequence():
     request_data = request.get_json()
     keys = {key:val for key,val in request_data.items() if val and key !="id_text" }
     fname =request_data["id_text"]
-    doc = json.load(open(f"texts/{fname}/{fname}.json"))
+    doc = json.load(open(f"texts/{fname}/{fname}_creading.json"))
     distance = request_data["distance"] -1 # distance is minus one; that's in order to get the right sequence
 
     a = {s.split("_")[0]:[] for s in request_data["after"]}
