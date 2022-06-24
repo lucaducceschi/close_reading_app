@@ -29,7 +29,7 @@ def tint2html(tintjson, css_info=""):
     new_txt=f'<html><head>{css_info}<meta charset="UTF-8"></head><body>'
     nsent=1
     
-    for nsent,sentence in enumerate(tintjson["sentences"]):
+    for sentence in tintjson["sentences"]:
    
         new_txt+="<span class='sentence' id='s" + str(nsent) +"'>"
         new_sent=""
