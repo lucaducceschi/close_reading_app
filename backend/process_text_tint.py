@@ -79,11 +79,11 @@ def tint2creadjson(tintsjon):
         
         ### sentence type ###
         if "?" in sent["text"]:
-            sentencedict["type"] = "int"
+            sentencedict["s_types"] = "int"
         elif "!" in sent["text"]:
-            sentencedict["type"] = "excl"
+            sentencedict["s_types"] = "excl"
         else:
-            sentencedict["stype"] = "decl"
+            sentencedict["s_types"] = "decl"
         
        
         deps = get_dependencies(sent)
