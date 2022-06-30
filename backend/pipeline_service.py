@@ -73,7 +73,7 @@ def getsentence():
 
     if "word_ids" in keys:
         for s_id, s_properties in text.items():
-            if s_properties["stype"] in keys["s_types"]:
+            if s_properties["s_types"] in keys["s_types"]:
                 words_in_sents = set(keys["word_ids"]).intersection(s_properties["dict"])
                 if words_in_sents:
                     out["s_ids"].append(s_id)
@@ -83,7 +83,7 @@ def getsentence():
     
     else:
         for s_id, s_properties in text.items():
-            if s_properties["stype"] in keys["s_types"]:
+            if s_properties["s_types"] in keys["s_types"]:
                 out["s_ids"].append(s_id)
 
 
