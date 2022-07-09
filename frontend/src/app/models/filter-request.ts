@@ -17,6 +17,7 @@ export interface FilterRequest {
   polarity?: string;
   degree?: string;
   foreign?: string;
+  pos?: string;
 }
 
 export function aFilterRequest(filterRequest: FilterRequest) {
@@ -102,6 +103,17 @@ export enum GenderValues {
 export enum NumTypeValues {
   CARD = 'Card',
   ORD = 'Ord',
+}
+
+export enum AuxTypeValues {
+  Modale = 'VM',
+  Ausiliare = 'VA',
+}
+
+export enum AliaTypeValues {
+  CongiunzioneSubordinata = 'SCONJ',
+  Congiunzione = 'CCONJ',
+  Interiezione = 'INTJ',
 }
 
 export enum PossValues {

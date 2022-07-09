@@ -35,6 +35,7 @@ export interface FilterCard extends Card {
   filterRequest: FilterRequest;
   filterFormGroup: FormGroup;
   tokenCount: string;
+  alia?: boolean;
 }
 
 export function aFilterCard(filterCard: FilterCard) {

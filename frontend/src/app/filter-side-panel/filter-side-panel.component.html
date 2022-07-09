@@ -31,6 +31,18 @@
       VERBO
     </button>
   </mat-list-item>
+
+  <mat-list-item>
+    <button
+      mat-flat-button
+      class="pos-button"
+      color="warn"
+      (click)="addFilterCard('AUX')"
+    >
+      AUSILIARE
+    </button>
+  </mat-list-item>
+
   <mat-list-item>
     <button
       mat-flat-button
@@ -69,9 +81,20 @@
       mat-flat-button
       class="pos-button"
       color="warn"
-      (click)="addFilterCard('PREPOSIZIONE')"
+      (click)="addFilterCard('ADP')"
     >
       PREPOSIZIONE
+    </button>
+  </mat-list-item>
+
+  <mat-list-item>
+    <button
+      mat-flat-button
+      class="pos-button"
+      color="warn"
+      (click)="addFilterCard('ADV')"
+    >
+      AVVERBIO
     </button>
   </mat-list-item>
 
@@ -83,6 +106,17 @@
       (click)="addFilterCard('DET')"
     >
       ARTICOLO
+    </button>
+  </mat-list-item>
+
+  <mat-list-item>
+    <button
+      mat-flat-button
+      class="pos-button"
+      color="warn"
+      (click)="addFilterCard('ALIA')"
+    >
+      ALIA
     </button>
   </mat-list-item>
 

@@ -152,6 +152,31 @@
         </mat-form-field>
       </div>
 
+      <div *ngIf="card.filterRequest.upos == 'AUX'">
+        <mat-label>Tipo di ausiliare: </mat-label>
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo di ausiliare </mat-label>
+          <mat-select formControlName="auxtype">
+            <mat-option value="VM"> Modale </mat-option>
+            <mat-option value="VA"> Ausiliare </mat-option>
+            <mat-option> Tutti </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="card.alia">
+        <mat-label>Tipo </mat-label>
+        <mat-form-field appearance="fill">
+          <mat-label>Tipo di alia </mat-label>
+          <mat-select formControlName="aliatype">
+            <mat-option value="SCONJ"> Congiunzione subordinata </mat-option>
+            <mat-option value="CCONJ"> Congiunzione </mat-option>
+            <mat-option value="INTJ"> Interiezione </mat-option>
+            <mat-option> Tutti </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
       <div *ngIf="card.filterRequest.upos == 'NOUN'" class="checkbox-group">
         <label>Straniero:</label>
         <mat-checkbox formControlName="foreign">Si</mat-checkbox>

@@ -124,8 +124,9 @@ export class FilterWrapperComponent {
               this.sequenceCards.length,
             filterRequest: aFilterRequest({
               id_text: this.selectedDocId,
-              upos: $event,
+              upos: $event != 'ALIA' ? $event : undefined,
             }),
+            alia: $event == 'ALIA',
             lens: DISABLED_FILTER_LENS,
             filterFormGroup: this.fb.group({
               lemma: [undefined],
@@ -137,6 +138,8 @@ export class FilterWrapperComponent {
               definite: [undefined],
               numtype: [undefined],
               prontype: [undefined],
+              auxtype: [undefined],
+              aliatype: [undefined],
               foreign: [false],
             }),
             lensFormGroup: this.fb.group({

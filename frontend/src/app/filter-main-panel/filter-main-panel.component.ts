@@ -27,6 +27,8 @@ import {
 } from '../models/filter-card';
 import { DISABLED_FILTER_LENS } from '../models/filter-lens';
 import {
+  AliaTypeValues,
+  AuxTypeValues,
   DefiniteValues,
   ForeignValues,
   GenderValues,
@@ -155,8 +157,16 @@ export class FilterMainPanelComponent {
           return 'NUMERALE ' + sequenceOrder + tokenCount;
         case UposValues.PROPN:
           return 'NOME PROPRIO ' + sequenceOrder + tokenCount;
+        case UposValues.ADP:
+          return 'PREPOSIZIONE ' + sequenceOrder + tokenCount;
+        case UposValues.ADV:
+          return 'AVVERBIO ' + sequenceOrder + tokenCount;
+        case UposValues.AUX:
+          return 'AUSILIARE ' + sequenceOrder + tokenCount;
         default:
-          return 'FILTRO ' + tokenCount;
+          return card.alia
+            ? 'ALIA' + sequenceOrder + tokenCount
+            : 'FILTRO ' + tokenCount;
       }
     }
     return 'FILTRO';
@@ -546,6 +556,10 @@ export class FilterMainPanelComponent {
       numtype: this.getNumTypeValue(filterCard.filterFormGroup.value),
       prontype: this.getProntypeValue(filterCard.filterFormGroup.value),
       foreign: this.getForeignValue(filterCard.filterFormGroup.value),
+      pos: this.getAuxTypeValue(filterCard.filterFormGroup.value),
+      upos: filterCard.alia
+        ? this.getAliaTypeValue(filterCard.filterFormGroup.value)
+        : filterCard.filterRequest.upos,
     };
 
     filterCard.notApplied = false;
@@ -684,6 +698,30 @@ export class FilterMainPanelComponent {
         return NumTypeValues.CARD;
       case NumTypeValues.ORD:
         return NumTypeValues.ORD;
+      default:
+        return undefined;
+    }
+  }
+
+  getAuxTypeValue(value: any) {
+    switch (value.auxtype) {
+      case AuxTypeValues.Ausiliare:
+        return AuxTypeValues.Ausiliare;
+      case AuxTypeValues.Modale:
+        return AuxTypeValues.Modale;
+      default:
+        return undefined;
+    }
+  }
+
+  getAliaTypeValue(value: any) {
+    switch (value.aliatype) {
+      case AliaTypeValues.Congiunzione:
+        return AliaTypeValues.Congiunzione;
+      case AliaTypeValues.CongiunzioneSubordinata:
+        return AliaTypeValues.CongiunzioneSubordinata;
+      case AliaTypeValues.Interiezione:
+        return AliaTypeValues.Interiezione;
       default:
         return undefined;
     }
